@@ -7,6 +7,14 @@ on:
         default: Hello  # デフォルト値
         required: true  # 必須フラグ
         description: A cheerful word  # 概要
+      log-level:
+        type: choice
+        options:
+          - info
+          - warn
+          - error
+        required: true
+        default: info
 jobs:
   run:
     runs-on: ubuntu-latest
