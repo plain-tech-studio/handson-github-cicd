@@ -4,4 +4,8 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.actor }}" # githubコンテキストの参照
+      - run: echo "github.actor - ${{ github.actor }}" # githubコンテキストの参照
+      - run: echo "github.run_id - ${{ github.run_id }}"
+      - run: echo "github.head_ref - ${{ github.head_ref }}"
+      - run: echo "github.workspace - ${{ github.workspace }}"
+      - run: echo "github.event - ${{ github.event }}"
