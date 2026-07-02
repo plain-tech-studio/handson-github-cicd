@@ -4,5 +4,7 @@ jobs:
   skip-or-run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello"
+      - run: echo "run_id is ${RUN_ID}"
         if: ${{ contains(github.run_id, '1') }} # ワークフロー実行IDで分岐
+        env:
+          RUN_ID: ${{ github.run_id }}
