@@ -4,6 +4,7 @@ jobs:
   hash:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v7 # コードを取得
       - run: echo "${HASH}"
         env:
-          HASH: ${{hashFiles('.github/workflows/*.yml')}}
+          HASH: ${{hashFiles('.github/workflows/*.yml')}} # ハッシュ値の生成
