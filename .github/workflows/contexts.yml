@@ -3,9 +3,15 @@ on: push
 jobs:
   print:
     runs-on: ubuntu-latest
+    env:
+      ACTOR: ${{ github.actor }}        # githubコンテキストの参照
+      RUN_ID: ${{ github.run_id }}
+      HEAD_REF: ${{ github.head_ref }}
+      WORKSPACE: ${{ github.workspace }}
+      EVENT: ${{ toJson(github.event) }}
     steps:
-      - run: echo "github.actor - ${{ github.actor }}" # githubコンテキストの参照
-      - run: echo "github.run_id - ${{ github.run_id }}"
-      - run: echo "github.head_ref - ${{ github.head_ref }}"
-      - run: echo "github.workspace - ${{ github.workspace }}"
-      - run: echo "github.event - ${{ github.event }}"
+      - run: echo "github.actor - ${ACTOR}"
+      - run: echo "github.run_id - ${RUN_ID}"
+      - run: echo "github.head_ref - ${HEAD_REF}"
+      - run: echo "github.workspace - ${WORKSPACE}"
+      - run: echo "github.event - ${EVENT}"
