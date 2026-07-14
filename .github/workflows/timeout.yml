@@ -1,0 +1,9 @@
+name: Timeout
+on: push
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1  # sleepジョブのタイムアウトを1分に設定
+    steps:
+      - run: sleep 120  # 2分間スリープさせる
+      
